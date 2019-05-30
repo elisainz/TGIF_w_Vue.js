@@ -1,0 +1,31 @@
+.mail_logo {
+    position: absolute;
+    width: 6%;
+    top: 7.7%;
+    right: 15.1%;
+
+}
+
+.mail-text-right {
+    position: absolute;
+    width: 4%;
+    top: 11%;
+    right: 11.7%;
+    font-size: 125%;
+
+}
+
+.tgif_logo {
+    position: static;
+    width: 30%;
+}
+
+.home_logo {
+    position: absolute;
+    width: 20%;
+    top: 37%;
+    right: 8%;
+
+}
+
+input.samerow {width: auto;}
