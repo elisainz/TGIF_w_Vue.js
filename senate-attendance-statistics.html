@@ -10,17 +10,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<!--mi css-->
 	<link rel="stylesheet" href="docs/styles/pages_styles.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<!--boostrap para dropdown menu y footer-->
+
 </head>
 <!--Bootstrap 3 to get a nice looking table, es un framework-->
 
 
 <!--como left/right al bloque de texto-->
-<div class="container">
+<div class="container" id="app">
 
-	<body onLoad="TablaAtAGlance(), TablaLeastEngaged(), TablaMostEngaged()">
+	<body>
 		<!--onLoad para cargar las funciones (que crean las tablas) de js-->
 		<div>
 			<img class="mail_logo" src="docs/styles/mail4_gif.gif" alt="Mail">
@@ -85,7 +83,21 @@
 				<div class="col-sm-5">
 					<h2>Senate at a glance</h2>
 
-					<table id="senate-house-at-a-glance" class="table table-hover"> <!--recordar cargar en body con onLoad tambien-->
+					<table id="senate-house-at-a-glance" class="table table-hover">
+						<!--recordar cargar en body con onLoad tambien-->
+						<thead>
+							<tr>
+								<th>Party</th>
+								<th>Number of Reps</th>
+								<th>% Voted with Party</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Democrats</td>
+								<td>{{estadisticasVUE.numberD}}</td> <!--va {{ }} para indicar que es codigo VUE-->
+							</tr>
+						</tbody>
 
 					</table>
 				</div>
@@ -94,15 +106,17 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<h2>Least Engaged (Bottom 10% Attendance)</h2>
-					<table id="senate-house-least-engaged" class="table table-hover"> <!--recordar cargar en body con onLoad tambien-->
+					<table id="senate-house-least-engaged" class="table table-hover">
+						<!--recordar cargar en body con onLoad tambien-->
 
 					</table>
-					
+
 				</div>
 
 				<div class="col-sm-6">
 					<h2>Most Engaged (Top 10% Attendance)</h2>
-					<table id="senate-house-most-engaged" class="table table-hover"> <!--recordar cargar en body con onLoad tambien-->
+					<table id="senate-house-most-engaged" class="table table-hover">
+						<!--recordar cargar en body con onLoad tambien-->
 
 					</table>
 
@@ -119,9 +133,13 @@
 			</div>
 		</footer>
 
-		<script src="docs/js/pro-congress-113-senate.js">
-		</script>
-
+		<!--<script src="docs/js/pro-congress-113-senate.js">
+		</script>-->
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!--boostrap para dropdown menu y footer-->
 		<script src="docs/js/statistics.js">
 		</script>
 

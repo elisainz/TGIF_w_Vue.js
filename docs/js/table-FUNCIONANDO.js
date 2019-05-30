@@ -8,10 +8,29 @@ var app = new Vue({
 	el: '#app',
 	data: {
 		miembrosFiltrados: [],
-		listaEstados: [],
 	}
 });
-
+/*$(function () {
+			var data;
+			$.ajax({
+				beforeSend: function (xhr) {
+					if (xhr.overrideMimeType) {
+						xhr.overrideMimeType("application/json");
+					}
+				}
+			});
+			// FUNCTION THAT COLLECTS DATA FROM THE JSON FILE 
+			function loadTimetable() {
+				$.getJSON(src = 'docs/js/statistics.json')
+					.done(function (data) {
+						times = data;
+					}).fail(function () {
+						$('#event').html('Sorry! We could not load the timetable atm');
+					});
+			}
+		})
+	
+		loadTimetable();*/
 
 
 fetch('https://api.propublica.org/congress/v1/113/senate/members.json', {
@@ -25,17 +44,31 @@ fetch('https://api.propublica.org/congress/v1/113/senate/members.json', {
 	//console.log(data);
 
 	//})
-	.then( resp => resp.json())
-  .then( data => {members = data.results[0].members})
-  .then(function(){filterTable(members)},function(){createDropdown(members)} )
-  .catch(error =>console.log(error));
+	.then(function (response) {
+		return response.json();
+	})
+	.then(function (myJson) {
+		//var data = JSON.stringify();
+		initialize(myJson);
+	})
+	.catch(function (error) {
+		alert("hay un error")
+		// If there is any error you will catch them here
+	});
 
+
+function initialize(data) {
+	members = data.results[0].members; //variable global
+	createDropdown();
+	createSenateTabla();
+
+}
 
 
 
 
 function createSenateTabla() {
-//	var tablaFormateada = renderSenTable(filterTable(members));
+	var tablaFormateada = renderSenTable(filterTable(members));
 	var tablaFinal = document.getElementById("senate-house-data");
 	tablaFinal.innerHTML = tablaFormateada;
 }
@@ -43,7 +76,7 @@ function createSenateTabla() {
 
 
 
-/*function renderSenTable(membersArray) {
+function renderSenTable(membersArray) {
 	var tabla = "<thead> <tr><th> Name </th> <th> Party </th> <th> State </th> <th> Years in Office </th> <th> % Votes w/ Party </th> </tr> </thead> "
 	tabla += "<tbody>"
 	membersArray.forEach(function (element) {
@@ -55,11 +88,11 @@ function createSenateTabla() {
 			tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.middle_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
 		}
 
-		
+		/*  */
 	})
 	tabla += "</tbody>"
 	return tabla;
-}*/
+}
 
 function getSenatorsHeaders(data) {
 	return "<tr><th></th>" + data.results[0].members(function (dest) /*destination*/ {
@@ -76,29 +109,44 @@ function renderSenHeaders(data) {
 
 //document.getElementsByClassName("samerow").onchange = filterTable(members)
 
-function filterTable(members) {
+function filterTable(membersArray) {
 	var checkedBoxes = Array.from(document.querySelectorAll('input[name=party]:checked'));
 	var state = document.querySelector('select').value
-	checkboxes = ["R", "D", "I"]
+	console.log(state)
+	//checkboxes = ["R", "D", "I"]
 	checkedBoxes = checkedBoxes.map(element => element.value);
-	app.miembrosFiltrados = members.filter(members => checkedBoxes.includes(members.party) && (state == "" ? true : members.state == state));
+	console.log(checkedBoxes);
+	var miembrosFiltrados = [];
+	miembrosFiltrados = membersArray.filter(miembro => checkedBoxes.includes(miembro.party) && (state == "" ? true : miembro.state == state));
+	console.log(miembrosFiltrados)
+	return miembrosFiltrados;
+
+
 }
 
 
 
-function createDropdown(members) {
-	 var members =  members.map(member => member.state).filter((value, index, arr) => {
-		return app.listaEstados = arr.indexOf(value) === index;
-		 //para que no se muestren estados repetidos
+function createDropdown() {
+	var dropDownMembers = members.map(member => member.state).filter((value, index, arr) => {
+		return arr.indexOf(value) === index; //para que no se muestren estados repetidos
 	}).sort();
-	
+
+
 	var output = '<option value="">All</option>';
-  members.forEach(member => {
-    app.listaEstados = output +=
-  `<option value = ${member}> ${member} </option>`;
-	
-  });
-	}
+	dropDownMembers.forEach(member => {
+		output +=
+			`<option value = ${member}> ${member} </option>`;
+
+
+
+	});
+
+	document.querySelector("#select-state").innerHTML = output;
+
+}
+
+
+
 
 
 
