@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>TGIF Senate</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--bootstrap para la tabla-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <!--mi css-->
-    <link rel="stylesheet" href="docs/styles/pages_styles.css">
+	<title>TGIF Senate</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--bootstrap para la tabla-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!--mi css-->
+	<link rel="stylesheet" href="docs/styles/pages_styles.css">
 </head>
 <!--Bootstrap 3 to get a nice looking table, es un framework-->
 
@@ -16,136 +16,134 @@
 <!--como left/right al bloque de texto-->
 
 <body>
-    <div class="container" id="app">
-        <!--ID para vincular con Vue en el js-->
-        <div>
-            <img class="mail_logo" src="docs/styles/mail4_gif.gif" alt="Mail">
-            <a href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
-                <img class="tgif_logo" src="docs/styles/tgif_logo.jpg" alt="TGIF">
-            </a>
+	<div class="container" id="app">
+		<div>
+			<img class="mail_logo" src="docs/styles/mail4_gif.gif" alt="Mail">
+			<a href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
+				<img class="tgif_logo" src="docs/styles/tgif_logo.jpg" alt="TGIF">
+			</a>
 
-            <!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
-        </div>
-
-
-        <div class="mail-text-right"> <a href="mailto:info@tgif.net?subject=Reaching%20Out&body=How%20are%20you">
-                <u>info@tgif.net</u>
-            </a> </div>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-
-                <ul class="nav navbar-nav">
-
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Congress 113 <span class="caret"></span></a>
-
-                        <ul class="dropdown-menu">
-                            <li><a href="house-data.html">House</a></li>
-                            <li><a href="senate-data.html">Senate</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="senate-attendance-statistics.html">Attendance<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="house-attendance-statistics.html">House</a></li>
-                            <li><a href="senate-attendance-statistics.html">Senate</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="senate-party-loyalty.html">Party Loyalty<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="house-party-loyalty.html">House</a></li>
-                            <li><a href="senate-party-loyalty.html">Senate</a></li>
-                        </ul>
-                    </li>
+			<!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
+		</div>
 
 
-                </ul>
-            </div>
-        </nav>
+		<div class="mail-text-right"> <a href="mailto:info@tgif.net?subject=Reaching%20Out&body=How%20are%20you">
+				<u>info@tgif.net</u>
+			</a> </div>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+
+				<ul class="nav navbar-nav">
+
+					<li><a href="index.html">Home</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Congress 113 <span class="caret"></span></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="house-data.html">House</a></li>
+							<li><a href="senate-data.html">Senate</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="senate-attendance-statistics.html">Attendance<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="house-attendance-statistics.html">House</a></li>
+							<li><a href="senate-attendance-statistics.html">Senate</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="senate-party-loyalty.html">Party Loyalty<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="house-party-loyalty.html">House</a></li>
+							<li><a href="senate-party-loyalty.html">Senate</a></li>
+						</ul>
+					</li>
 
 
-
-        <section>
-
-            <!--Table container-->
-            <div class="container">
-                <h2>Senators</h2>
-                <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+				</ul>
+			</div>
+		</nav>
 
 
 
+		<section>
 
-                <form action="#" id="filters" class="row">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <b>&nbsp;&nbsp;Filter by Party:</b>
-                            <input class="samerow" id="check-republican" type="checkbox" name="party" value="R" checked onchange="createSenateTabla()"> Republican
-                            <input class="samerow" id="check-democrat" type="checkbox" name="party" value="D" checked onchange="createSenateTabla()"> Democrat
-                            <input class="samerow" id="check-independent" type="checkbox" name="party" value="I" checked onchange="createSenateTabla()"> Independent
-                        </div>
-                        <div class="col-md-3">
-                            <label for="select-states">Filter by State:</label>
-                            <select>
-                                <option> </option>
-                                <option> </option>
-                                <option> </option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Name </th>
-                                <th>Party </th>
-                                <th>State </th>
-                                <th>Years in Office </th>
-                                <th>% Votes w/ Party</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="miembro in miembrosFiltrados">
-                                <!--se usa v-for porque recorremos miembrosFiltrados que es un array-->
-                                <td> <a :href="miembro.url"> {{miembro.first_name}} {{miembro.middle_name}} {{miembro.last_name}} </a></td>
-                                <td>{{miembro.party}}</td>
-                                <td>{{miembro.state}}</td>
-                                <td>{{miembro.seniority}}</td>
-                                <td>{{miembro.votes_with_party_pct + ' %'}}</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
+			<!--Table container-->
+			<div class="container">
+				<h2>Senators</h2>
+				<p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
 
 
-                </form>
-            </div>
-        </section>
 
 
-        <footer>
+				<form action="#" id="filters" class="row">
+					<div class="row">
+						<div class="col-md-9">
+							<b>&nbsp;&nbsp;Filter by Party:</b>
+							<input class="samerow" id="check-republican" type="checkbox" name="party" value="R" checked onchange="createSenateTabla()"> Republican
+							<input class="samerow" id="check-democrat" type="checkbox" name="party" value="D" checked onchange="createSenateTabla()"> Democrat
+							<input class="samerow" id="check-independent" type="checkbox" name="party" value="I" checked onchange="createSenateTabla()"> Independent
+						</div>
+						<div class="col-md-3">
+							<label for="select-states">Filter by State:</label>
+							<select>
+								<option> </option>
+								<option> </option>
+								<option> </option>
+							</select>
+						</div>
+					</div>
 
-            <div class="container">
-                <div class="panel panel-default text-center py-3">
-                    <div class="panel-heading text-center py-3">© 2019 TGIF | All Rights Reserved</div>
-                </div>
-            </div>
-        </footer>
-    </div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Name </th>
+								<th>Party </th>
+								<th>State </th>
+								<th>Years in Office </th>
+								<th>% Votes w/ Party</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="miembro in miembrosFiltrados"> <!--se usa v-for porque recorremos miembrosFiltrados que es un array-->
+								<td> <a :href="miembro.url"> {{miembro.first_name}} {{miembro.middle_name}} {{miembro.last_name}} </a></td>
+								<td>{{miembro.party}}</td>
+								<td>{{miembro.state}}</td>
+								<td>{{miembro.seniority}}</td>
+								<td>{{miembro.votes_with_party_pct}}</td>
+							</tr>
 
-    <!--<script src="docs/js/pro-congress-113-senate.js">
+						</tbody>
+					</table>
+
+					<!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
+
+
+				</form>
+			</div>
+		</section>
+
+
+		<footer>
+
+			<div class="container">
+				<div class="panel panel-default text-center py-3">
+					<div class="panel-heading text-center py-3">© 2019 TGIF | All Rights Reserved</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!--<script src="docs/js/pro-congress-113-senate.js">
 
         </script>-->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <!--boostrap para dropdown menu y footer-->
-    <script src="docs/js/table-demo.js">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!--boostrap para dropdown menu y footer-->
+	<script src="docs/js/table-demo.js">
 
 
-    </script>
+	</script>
 </body>
 
 

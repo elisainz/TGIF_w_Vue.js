@@ -49,14 +49,8 @@ function guardarEstadisticas(members) {
 			least_engaged: [],
 			most_engaged: [],
 			least_loyal: [],
-			most_loyal: [],
-            miembrosFiltrados: []
+			most_loyal: []
 		}
-
-    
-????????  function losMiembros (members) {
-	app.miembrosFiltrados = members
-}
 
 
 
