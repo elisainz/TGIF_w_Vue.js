@@ -14,7 +14,7 @@ var app = new Vue({
 
 
 
-fetch('https://api.propublica.org/congress/v1/113/senate/members.json', {
+fetch('https://api.propublica.org/congress/v1/113/senate/members.json', { //como hacer fetch del 'https://api.propublica.org/congress/v1/113/house/members.json' para DRY
 		method: "GET",
 		headers: {
 			"X-API-Key": "DjNNmiLeTt8Lmjurho6Q3kXwwBCUBj31PqRGkZIk"
@@ -105,48 +105,3 @@ function createDropdown(members) {
 
 
 
-/*function getFilters(membersArray) {
-
-  membersArray.map(function (element) {
-        tabla += "<tr>"
-        if (element.party === R) {
-          tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-        }
-
-        if (element.party === D) {
-          tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-        }
-        if (element.party === I) {
-          tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-        }
-      }
-      tabla += "</tbody>"
-      return tabla;
-
-
-
-
-
-
-
-      /*console.log(data.results[0]/*al ser un array poner []/.members); */
-
-
-
-/* var planta = {
-   nombre: "fedeeee",
-   edad: 26
- };
-
- var persona = {
-   nombre: "fede",
-   edad: 26
- };
-
- function pruebaNombre(p) {
-   return p.nombre;
-
- }
- pruebaNombre(planta); */
-
-////*console.log(JSON.stringify()) o make the data variable's contents a string (easier to read)*///
