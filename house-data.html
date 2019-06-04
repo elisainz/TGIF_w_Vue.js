@@ -15,10 +15,9 @@
 
 
 <!--como left/right al bloque de texto-->
+<div class="container">
 
-<body>
-    <div class="container" id="app">
-
+    <body>
         <div>
             <img class="mail_logo" src="docs/styles/mail4_gif.gif" alt="Mail">
             <a href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
@@ -86,43 +85,51 @@
                         </div>
                         <div class="col-md-3">
                             <label for="select-states">Filter by State:</label>
-                            <select>
-                                <option> </option>
-                                <option> </option>
-                                <option> </option>
-                            </select>
-                        </div>
-                    </div>
+							<select>
+								<option> </option>
+								<option> </option>
+								<option> </option>
+							</select>
+						</div>
+					</div>
+
 
                     <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Name </th>
-                                <th>Party </th>
-                                <th>State </th>
-                                <th>Years in Office </th>
-                                <th>% Votes w/ Party</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="miembro in miembrosFiltrados">
-                                <!--se usa v-for porque recorremos miembrosFiltrados que es un array-->
-                                <td> <a :href="miembro.url"> {{miembro.first_name}} {{miembro.middle_name}} {{miembro.last_name}} </a></td>
-                                <td>{{miembro.party}}</td>
-                                <td>{{miembro.state}}</td>
-                                <td>{{miembro.seniority}}</td>
-                                <td>{{miembro.votes_with_party_pct + ' %'}}</td>
-                            </tr>
+						<thead>
+							<tr>
+								<th>Name </th>
+								<th>Party </th>
+								<th>State </th>
+								<th>Years in Office </th>
+								<th>% Votes w/ Party</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="miembro in miembrosFiltrados"> <!--se usa v-for porque recorremos miembrosFiltrados que es un array-->
+								<td> <a :href="miembro.url"> {{miembro.first_name}} {{miembro.middle_name}} {{miembro.last_name}} </a></td>
+								<td>{{miembro.party}}</td>
+								<td>{{miembro.state}}</td>
+								<td>{{miembro.seniority}}</td>
+								<td>{{miembro.votes_with_party_pct}}</td>
+							</tr>
 
-                        </tbody>
-                    </table>
+						</tbody>
+					</table>
+
+					<!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
+
+
+				</form>
+			</div>
+		</section>
+
+
 
                     <!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
-
-
                 </form>
             </div>
         </section>
+
 
 
         <footer>
@@ -133,20 +140,18 @@
                 </div>
             </div>
         </footer>
-    </div>
 
-    <!--<script src="docs/js/pro-congress-113-senate.js">
+        <!--<script src="docs/js/pro-congress-113-house.js">
 
         </script>-->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <!--boostrap para dropdown menu y footer-->
-    <script src="docs/js/table-demo.js">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <!--boostrap para dropdown menu y footer-->
+        <script src="docs/js/table-demo.js">
 
-
-    </script>
-</body>
-
+        </script>
+    </body>
+</div>
 
 </html>
