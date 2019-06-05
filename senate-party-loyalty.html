@@ -3,7 +3,6 @@
 
 <head>
     <title>TGIF Senate Party Loyalty</title>
-	  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,17 +10,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <!--mi css-->
     <link rel="stylesheet" href="docs/styles/pages_styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <!--boostrap para dropdown menu y footer-->
 </head>
 <!--Bootstrap 3 to get a nice looking table, es un framework-->
 
 
 <!--como left/right al bloque de texto-->
-<div class="container">
+<div class="container" id="app">
 
-    <body onLoad="TablaAtAGlance(), TablaLeastLoyal(), TablaMostLoyal()">
+	<body>
         <div>
             <img class="mail_logo" src="docs/styles/mail4_gif.gif" alt="Mail">
             <a href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
@@ -85,7 +81,39 @@
                     <h2>Senate at a glance</h2>
 
                     <table id="senate-house-at-a-glance" class="table table-hover">
-                        <!--recordar cargar en body con onLoad tambien-->
+                        <thead>
+                            <tr>
+                                <th>Party</th>
+                                <th>Number of Reps</th>
+                                <th>% Voted with Party</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Democrats</td>
+                                <td>{{estadisticasVUE.numberD}}</td>
+                                <!--va {{ }} para indicar que es codigo VUE-->
+                                <td>{{(estadisticasVUE.vwpDem).toFixed(2)+ ' %'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Republicans</td>
+                                <td>{{estadisticasVUE.numberR}}</td>
+                                <!--va {{ }} para indicar que es codigo VUE-->
+                                <td>{{(estadisticasVUE.vwpRep).toFixed(2)+ ' %'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Independents</td>
+                                <td>{{estadisticasVUE.numberI}}</td>
+                                <!--va {{ }} para indicar que es codigo VUE-->
+                                <td>{{(estadisticasVUE.vwpInd).toFixed(2)+ ' %'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>{{estadisticasVUE.numberTOTAL}}</td>
+                                <!--va {{ }} para indicar que es codigo VUE-->
+                                <td>{{(estadisticasVUE.vwpTOTAL).toFixed(2)+ ' %'}}</td>
+                            </tr>
+                        </tbody>
 
                     </table>
                 </div>
@@ -95,8 +123,13 @@
                 <div class="col-sm-6">
                     <h2>Least Loyal (Bottom 10% of Party)</h2>
                     <table id="senate-house-least-loyal" class="table table-hover">
-                        <!--recordar cargar en body con onLoad tambien-->
-
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number of Party Votes</th>
+                                <th>% Party Votes</th>
+                            </tr>
+                        </thead>
                     </table>
 
                 </div>
@@ -104,7 +137,13 @@
                 <div class="col-sm-6">
                     <h2>Most Loyal (Top 10% of Party)</h2>
                     <table id="senate-house-most-loyal" class="table table-hover">
-                        <!--recordar cargar en body con onLoad tambien-->
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number of Party Votes</th>
+                                <th>% Party Votes</th>
+                            </tr>
+                        </thead>
 
                     </table>
 
@@ -116,19 +155,25 @@
         <footer>
 
             <div class="container">
-                <div class="panel panel-default text-center py-3">
-                    <div class="panel-heading text-center py-3">© 2019 TGIF | All Rights Reserved</div>
-                </div>
-            </div>
-        </footer>
+				<div class="panel panel-default text-center py-3">
+					<div class="panel-heading text-center py-3">© 2019 TGIF | All Rights Reserved</div>
+				</div>
+			</div>
+		</footer>
 
-        <!--<script src="docs/js/pro-congress-113-senate.js">
-        </script>-->
+		<!--<script src="docs/js/pro-congress-113-senate.js">
+		</script>-->
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!--boostrap para dropdown menu y footer-->
+		<script src="docs/js/statistics.js">
+		</script>
 
-        <script src="docs/js/statistics.js">
-        </script>
 
-    </body>
+
+	</body>
 </div>
 
 </html>

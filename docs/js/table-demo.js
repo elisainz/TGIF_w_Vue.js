@@ -12,9 +12,15 @@ var app = new Vue({
 	}
 });
 
+if (document.title === "TGIF Senate") {
+  url= 'https://api.propublica.org/congress/v1/113/senate/members.json'
+} 
+else if (document.title === "TGIF House") {
+  url= 'https://api.propublica.org/congress/v1/113/house/members.json'
+} 
 
 
-fetch('https://api.propublica.org/congress/v1/113/senate/members.json', {
+fetch(url, { 
 		method: "GET",
 		headers: {
 			"X-API-Key": "DjNNmiLeTt8Lmjurho6Q3kXwwBCUBj31PqRGkZIk"
@@ -27,7 +33,7 @@ fetch('https://api.propublica.org/congress/v1/113/senate/members.json', {
 	//})
 	.then( resp => resp.json())
   .then( data => {members = data.results[0].members})
-  .then(function(){filterTable(members)},function(){createDropdown(members)} )
+  .then(function(){filterTable()},function(){createDropdown(members)} )
   .catch(error =>console.log(error));
 
 
@@ -36,8 +42,7 @@ fetch('https://api.propublica.org/congress/v1/113/senate/members.json', {
 
 function createSenateTabla() {
 //	var tablaFormateada = renderSenTable(filterTable(members));
-	var tablaFinal = document.getElementById("senate-house-data");
-	tablaFinal.innerHTML = tablaFormateada;
+	app.miembrosFiltrados = []//lista filtrada;
 }
 
 
@@ -76,7 +81,7 @@ function renderSenHeaders(data) {
 
 //document.getElementsByClassName("samerow").onchange = filterTable(members)
 
-function filterTable(members) {
+function filterTable() {
 	var checkedBoxes = Array.from(document.querySelectorAll('input[name=party]:checked'));
 	var state = document.querySelector('select').value
 	checkboxes = ["R", "D", "I"]
@@ -98,55 +103,12 @@ function createDropdown(members) {
   `<option value = ${member}> ${member} </option>`;
 	
   });
+  return app.listaEstados
 	}
+  document.getElementById("estados").innerHTML= createDropdown(members)
 
 
 
 
 
 
-/*function getFilters(membersArray) {
-
-  membersArray.map(function (element) {
-        tabla += "<tr>"
-        if (element.party === R) {
-          tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-        }
-
-        if (element.party === D) {
-          tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-        }
-        if (element.party === I) {
-          tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-        }
-      }
-      tabla += "</tbody>"
-      return tabla;
-
-
-
-
-
-
-
-      /*console.log(data.results[0]/*al ser un array poner []/.members); */
-
-
-
-/* var planta = {
-   nombre: "fedeeee",
-   edad: 26
- };
-
- var persona = {
-   nombre: "fede",
-   edad: 26
- };
-
- function pruebaNombre(p) {
-   return p.nombre;
-
- }
- pruebaNombre(planta); */
-
-////*console.log(JSON.stringify()) o make the data variable's contents a string (easier to read)*///
