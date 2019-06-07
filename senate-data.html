@@ -76,7 +76,7 @@
 
 
 
-                <form action="#" id="filters" class="row">
+                  <form action="#" id="filters" class="row">
                     <div class="row">
                         <div class="col-md-9">
                             <b>&nbsp;&nbsp;Filter by Party:</b>
@@ -86,10 +86,14 @@
                         </div>
                         <div class="col-md-3">
                             <label for="select-states">Filter by State:</label>
-                            <select id="estados">
-                                <option> </option>
-                                <option> </option>
-                                <option> </option>
+                            <select id="estados" onchange="filterTable()">
+                                <option value="">
+                                    All
+                                </option>
+
+                                <option v-bind:value="estado" v-for="estado in listaEstados"> 
+                                    {{ estado }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -117,19 +121,20 @@
                         </tbody>
                     </table>
 
+
+
                     <!-- <img src="../picture.jpg">	picture.jpg is located in the folder one level up from the current folder -->
-
-
                 </form>
             </div>
         </section>
+
 
 
         <footer>
 
             <div class="container">
                 <div class="panel panel-default text-center py-3">
-                    <div class="panel-heading text-center py-3">© 2019 TGIF | All Rights Reserved</div>
+                    <div class="panel-heading text-center py-3">© 2019 TGIF by Elizabeth | All Rights Reserved</div>
                 </div>
             </div>
         </footer>

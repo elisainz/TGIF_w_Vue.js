@@ -130,6 +130,15 @@
                                 <th>% Party Votes</th>
                             </tr>
                         </thead>
+                        <tbody>
+								<tr v-for="miembro in estadisticasVUE.least_loyal">
+									<!--se usa v-for porque recorremos miembrosFiltrados que es un array-->
+                                    <td><a :href="miembro.url"> {{miembro.first_name}} {{miembro.middle_name}} {{miembro.last_name}} </a></td>
+									<td>{{miembro.total_votes}}</td>
+									<td>{{miembro.votes_with_party_pct + ' %'}}</td>
+								</tr>
+		
+							</tbody>
                     </table>
 
                 </div>
@@ -144,6 +153,15 @@
                                 <th>% Party Votes</th>
                             </tr>
                         </thead>
+                        <tbody>
+								<tr v-for="miembro in estadisticasVUE.most_loyal">
+									<!--se usa v-for porque recorremos miembrosFiltrados que es un array-->
+                                    <td><a :href="miembro.url"> {{miembro.first_name}} {{miembro.middle_name}} {{miembro.last_name}} </a></td>
+									<td>{{miembro.total_votes}}</td>
+									<td>{{miembro.votes_with_party_pct + ' %'}}</td>
+								</tr>
+		
+							</tbody>
 
                     </table>
 
@@ -154,9 +172,9 @@
 
         <footer>
 
-            <div class="container">
+			<div class="container">
 				<div class="panel panel-default text-center py-3">
-					<div class="panel-heading text-center py-3">© 2019 TGIF | All Rights Reserved</div>
+					<div class="panel-heading text-center py-3">© 2019 TGIF by Elizabeth | All Rights Reserved</div>
 				</div>
 			</div>
 		</footer>

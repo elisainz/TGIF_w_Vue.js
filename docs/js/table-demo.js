@@ -26,14 +26,12 @@ fetch(url, {
 			"X-API-Key": "DjNNmiLeTt8Lmjurho6Q3kXwwBCUBj31PqRGkZIk"
 		}
 	})
-	//.then(function (response) {
-	//var data = response.json();
-	//console.log(data);
-
-	//})
 	.then( resp => resp.json())
-  .then( data => {members = data.results[0].members})
-  .then(function(){filterTable()},function(){createDropdown(members)} )
+  .then( data => {
+	  members = data.results[0].members;
+	  filterTable();
+	  createDropdown(members);
+	})
   .catch(error =>console.log(error));
 
 
@@ -45,26 +43,6 @@ function createSenateTabla() {
 	app.miembrosFiltrados = []//lista filtrada;
 }
 
-
-
-
-/*function renderSenTable(membersArray) {
-	var tabla = "<thead> <tr><th> Name </th> <th> Party </th> <th> State </th> <th> Years in Office </th> <th> % Votes w/ Party </th> </tr> </thead> "
-	tabla += "<tbody>"
-	membersArray.forEach(function (element) {
-		tabla += "<tr>"
-
-		if (element.middle_name === null) {
-			tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-		} else {
-			tabla += "<td>" + "<a href='" + element.url + "'>" + element.first_name + "&nbsp;" + element.middle_name + "&nbsp;" + element.last_name + "</td><td>" + "</a>" + element.party + "</td><td>" + element.state + "</td><td>" + element.seniority + "</td><td>" + element.votes_with_party_pct + '%' + "</td>";
-		}
-
-		
-	})
-	tabla += "</tbody>"
-	return tabla;
-}*/
 
 function getSenatorsHeaders(data) {
 	return "<tr><th></th>" + data.results[0].members(function (dest) /*destination*/ {
@@ -92,21 +70,13 @@ function filterTable() {
 
 
 function createDropdown(members) {
-	 var members =  members.map(member => member.state).filter((value, index, arr) => {
-		return app.listaEstados = arr.indexOf(value) === index;
+	 var estados =  members.map(member => member.state).filter((value, index, arr) => {
+		return estados = arr.indexOf(value) === index;
 		 //para que no se muestren estados repetidos
 	}).sort();
-	
-	var output = '<option value="">All</option>';
-  members.forEach(member => {
-    app.listaEstados = output +=
-  `<option value = ${member}> ${member} </option>`;
-	
-  });
-  return app.listaEstados
-	}
-  document.getElementById("estados").innerHTML= createDropdown(members)
 
+	app.listaEstados = estados;
+}
 
 
 
